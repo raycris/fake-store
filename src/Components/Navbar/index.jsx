@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   const activeStyle = "underline underline-offset-4";
   return (
-    <nav className="flex w-full min-w-[280px] justify-between items-center fixed z-10 text-sm font-light p-3">
+    <nav className="flex w-full min-w-[280px] justify-between items-center fixed z-10 top-0 text-sm font-light p-3">
       <ul className="lg:items-center lg:flex lg:gap-3">
         <li className="font-semibold text-lg">
           <NavLink to="/">Shopi fake</NavLink>
