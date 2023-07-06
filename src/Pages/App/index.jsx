@@ -7,6 +7,8 @@ import MyOrders from "../MyOrders";
 import NotFound from "../NotFound";
 import MyAccount from "../MyAccount";
 
+import { ShoppingCartProvider } from "../../context";
+
 import Navbar from "../../Components/Navbar";
 
 import "./App.css";
@@ -25,10 +27,12 @@ const AppRoutes = () => {
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <AppRoutes />
-      <Navbar />
-    </BrowserRouter>
+    <ShoppingCartProvider>
+      <BrowserRouter>
+        <AppRoutes />
+        <Navbar />
+      </BrowserRouter>
+    </ShoppingCartProvider>
   );
 };
 
