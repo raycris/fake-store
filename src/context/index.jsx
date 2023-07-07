@@ -1,10 +1,17 @@
 import { createContext, useState } from "react";
+import PropTypes from "prop-types";
 
-const ShoppingCartContext = createContext();
+export const ShoppingCartContext = createContext();
 
 export const ShoppingCartProvider = ({ children }) => {
+  ShoppingCartProvider.propTypes = {
+    children: PropTypes.elementType,
+  };
+
   const [count, setCount] = useState(0);
   return (
-    <ShoppingCartContext.Provider value={{count, setCount}}>{children}</ShoppingCartContext.Provider>
+    <ShoppingCartContext.Provider value={{ count, setCount }}>
+      {children}
+    </ShoppingCartContext.Provider>
   );
 };
