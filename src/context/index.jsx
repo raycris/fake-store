@@ -13,6 +13,9 @@ export const ShoppingCartProvider = ({ children }) => {
 
   const openProductDetail = () => setIsProductDetailOpen(true);
   const closeProductDetail = () => setIsProductDetailOpen(false);
+
+  const [productToShow, setProductToShow] = useState({});
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -21,6 +24,8 @@ export const ShoppingCartProvider = ({ children }) => {
         isProductDetailOpen,
         openProductDetail,
         closeProductDetail,
+        productToShow,
+        setProductToShow,
       }}
     >
       {children}
