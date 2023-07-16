@@ -10,6 +10,7 @@ import MyAccount from "../MyAccount";
 import { ShoppingCartProvider } from "../../context";
 
 import Navbar from "../../Components/Navbar";
+import CheckoutSideMenu from "../../Components/CheckoutSideMenu";
 
 import "./App.css";
 
@@ -31,6 +32,7 @@ const App = () => {
       <BrowserRouter>
         <AppRoutes />
         <Navbar />
+        <CheckoutSideMenu/>
       </BrowserRouter>
     </ShoppingCartProvider>
   );

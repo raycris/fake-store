@@ -10,6 +10,7 @@ const Card = (data) => {
     setProductToShow,
     cartProducts,
     setCartProducts,
+    openCheckoutSideMenu,
   } = useContext(ShoppingCartContext);
 
   const showProduct = (ProductDetail) => {
@@ -17,9 +18,11 @@ const Card = (data) => {
     setProductToShow(ProductDetail);
   };
 
-  const addProductToCart = (productData) => {
+  const addProductToCart = (event, productData) => {
+    event.stopPropagation();
     setCount(count + 1);
     setCartProducts([...cartProducts, productData]);
+    openCheckoutSideMenu();
   };
 
   return (
@@ -38,7 +41,7 @@ const Card = (data) => {
         />
         <div
           className="absolute top-0 right-0 flex justify-center items-center rounded-full bg-white w-6 h-6 m-2 p-1"
-          onClick={() => addProductToCart(data.data)}
+          onClick={(event) => addProductToCart(event, data.data)}
         >
           <PlusIcon className="h-6 w-6 text-black" />
         </div>
