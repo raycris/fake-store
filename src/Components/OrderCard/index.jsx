@@ -1,10 +1,17 @@
-
+import PropTypes from "prop-types";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
+
+
 const OrderCard = (props) => {
+  OrderCard.propTypes = {
+    title: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+  };
   const { title, imageUrl, price } = props;
   return (
-    <section className="flex justify-between items-center mb-3">
+    <section className="flex justify-between items-center mb-6">
       <div className="flex items-center gap-2">
         <figure className="w-20 h-20">
           <img
