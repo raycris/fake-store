@@ -1,5 +1,11 @@
-
+import PropTypes from "prop-types";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+
+OrderCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+};
 
 const OrderCard = (props) => {
   const { title, imageUrl, price } = props;
