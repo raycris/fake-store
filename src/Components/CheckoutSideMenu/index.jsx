@@ -4,8 +4,15 @@ import { ShoppingCartContext } from "../../context";
 import OrderCard from "../OrderCard";
 
 const CheckoutSideMenu = () => {
-  const { isCheckoutSideMenuOpen, closeCheckoutSideMenu, cartProducts } =
+  const { isCheckoutSideMenuOpen, closeCheckoutSideMenu, cartProducts, setCartProducts } =
     useContext(ShoppingCartContext);
+
+  const handleDelete = (id) => {
+    const filteredProducts = cartProducts.filter(
+      (product) => product.id !== id
+    );
+    setCartProducts(filteredProducts)
+  };
 
   return (
     <>
@@ -24,9 +31,11 @@ const CheckoutSideMenu = () => {
             {cartProducts.map((product) => (
               <OrderCard
                 key={product.id}
+                id={product.id}
                 title={product.title}
                 price={product.price}
                 imageUrl={product.images}
+                handleDelete={handleDelete}
               />
             ))}
           </div>
