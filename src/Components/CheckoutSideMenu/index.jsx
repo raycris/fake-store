@@ -2,16 +2,21 @@ import { useContext } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { ShoppingCartContext } from "../../context";
 import OrderCard from "../OrderCard";
+import { totalPrice } from "../../utils";
 
 const CheckoutSideMenu = () => {
-  const { isCheckoutSideMenuOpen, closeCheckoutSideMenu, cartProducts, setCartProducts } =
-    useContext(ShoppingCartContext);
+  const {
+    isCheckoutSideMenuOpen,
+    closeCheckoutSideMenu,
+    cartProducts,
+    setCartProducts,
+  } = useContext(ShoppingCartContext);
 
   const handleDelete = (id) => {
     const filteredProducts = cartProducts.filter(
       (product) => product.id !== id
     );
-    setCartProducts(filteredProducts)
+    setCartProducts(filteredProducts);
   };
 
   return (
@@ -38,6 +43,14 @@ const CheckoutSideMenu = () => {
                 handleDelete={handleDelete}
               />
             ))}
+          </div>
+          <div className="px-6">
+            <p className="flex justify-between items-center">
+              <span className="font-light">Total:</span>
+              <span className="font-medium text-2xl">
+                ${totalPrice(cartProducts)}
+              </span>
+            </p>
           </div>
         </aside>
       )}
