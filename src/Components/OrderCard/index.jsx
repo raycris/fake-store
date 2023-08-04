@@ -5,9 +5,9 @@ const OrderCard = (props) => {
   OrderCard.propTypes = {
     id: PropTypes.number,
     title: PropTypes.string.isRequired,
-    imageUrl: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    handleDelete: PropTypes.array,
+    imageUrl: PropTypes.array.isRequired,
+    price: PropTypes.number.isRequired,
+    handleDelete: PropTypes.func,
   };
   const { id, title, imageUrl, price, handleDelete } = props;
   // let renderXMarkIcon;

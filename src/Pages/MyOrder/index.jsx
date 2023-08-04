@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 
 import Layout from "../../Components/Layout";
@@ -9,6 +9,9 @@ import { ShoppingCartContext } from "../../context";
 
 const MyOrder = () => {
   const { order } = useContext(ShoppingCartContext);
+  const location = useLocation();
+  let index = location.pathname.substring(location.pathname.lastIndexOf("/")+1)
+  if(index === "last") index = order?.length - 1;
   return (
     <Layout>
       <div className="flex relative justify-center items-center w-80">
@@ -18,7 +21,7 @@ const MyOrder = () => {
         <h1>My Order</h1>
       </div>
       <div className="flex flex-col w-80">
-        {order?.slice(-1)[0].products.map((product) => (
+        {order?.[index]?.products.map((product) => (
           <OrderCard
             key={product.id}
             id={product.id}
