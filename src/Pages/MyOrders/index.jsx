@@ -12,7 +12,7 @@ const MyOrders = () => {
   return (
     <Layout>
       <div className="flex relative justify-center items-center w-80 mb-6">
-        <h1>MyOrders</h1>
+        <h1 className='font-medium text-xl'>My Orders</h1>
       </div>
       {order.map((order, index) => (
         <Link
