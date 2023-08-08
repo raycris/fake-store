@@ -10,9 +10,17 @@ const OrderCard = (props) => {
     handleDelete: PropTypes.func,
   };
   const { id, title, imageUrl, price, handleDelete } = props;
-  // let renderXMarkIcon;
+  let renderXMarkIcon;
+  if (handleDelete) {
+    renderXMarkIcon = (
+      <XMarkIcon
+        onClick={() => handleDelete(id)}
+        className="h-6 w-6 text-black cursor-pointer"
+      />
+    );
+  }
   return (
-    <section className="flex justify-between items-center mb-6">
+    <div className="flex justify-between items-center mb-3">
       <div className="flex items-center gap-2">
         <figure className="w-20 h-20">
           <img
@@ -20,19 +28,14 @@ const OrderCard = (props) => {
             src={imageUrl}
             alt={title}
           />
-          <p className="text-sm font-light">{title}</p>
         </figure>
+        <p className="text-sm font-light">{title}</p>
       </div>
       <div className="flex items-center gap-2">
         <p className="text-lg font-medium">{price}</p>
-        {handleDelete && (
-          <XMarkIcon
-            className="h-6 w-6 text-black cursor-pointer"
-            onClick={() => handleDelete(id)}
-          />
-        )}
+        {renderXMarkIcon}
       </div>
-    </section>
+    </div>
   );
 };
 
