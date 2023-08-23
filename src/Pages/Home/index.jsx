@@ -18,7 +18,7 @@ const Home = () => {
       return <p>No Results Found</p>;
     }
   };
-  
+
   return (
     <Layout>
       <div className="flex items-center justify-center relative w-80 mb-4">
