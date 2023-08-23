@@ -5,7 +5,8 @@ import Layout from "../../Components/Layout";
 import ProductDetail from "../../Components/ProductDetail";
 import { ShoppingCartContext } from "../../context";
 
-const Home = () => {
+const 
+Home = () => {
   const { items, setSearchByTitle, searchByTitle, filteredItems } =
     useContext(ShoppingCartContext);
 
