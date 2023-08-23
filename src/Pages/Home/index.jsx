@@ -5,8 +5,7 @@ import Layout from "../../Components/Layout";
 import ProductDetail from "../../Components/ProductDetail";
 import { ShoppingCartContext } from "../../context";
 
-const 
-Home = () => {
+const Home = () => {
   const { items, setSearchByTitle, searchByTitle, filteredItems } =
     useContext(ShoppingCartContext);
 
@@ -19,7 +18,7 @@ Home = () => {
       return <p>No Results Found</p>;
     }
   };
-  
+
   return (
     <Layout>
       <div className="flex items-center justify-center relative w-80 mb-4">
